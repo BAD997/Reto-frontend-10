@@ -1,0 +1,132 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+} 
+
+:root {
+  /* Primary */
+  --gold-500: hsl(31, 77%, 52%);
+  --cyan-800: hsl(184, 100%, 22%);
+  --green-950: hsl(179, 100%, 13%);
+
+  /* Neutral */
+  --white-transparent: hsla(0, 0%, 100%, 0.75);
+  --gray-100: hsl(0, 0%, 95%);
+}
+
+
+body {
+    background-color: var(--gray-100);
+    display: grid;
+    place-content: center;
+    min-height: 100vh;
+    padding: 1.5rem;
+}
+
+/* Contenedor principal para alinear las tarjetas */
+.card-collection {
+    display: flex;
+    flex-wrap: wrap; /* Permite que las tarjetas pasen a la siguiente línea en móvil */
+    max-width: 375px;
+    border-radius: 10px;
+    overflow: hidden; /* Asegura que los bordes de las tarjetas se recorten correctamente */
+}
+
+
+/* --- 1. BLOQUE BASE (Estilos 100% reutilizables) --- */
+.vehicle-card {
+    padding: 43px;
+    font-size: 15px;
+    line-height: 1.7;
+    font-family: 'Lexend Deca', sans-serif; /* Fuente para párrafos y botones */
+}
+
+/* --- 2. ELEMENTOS (Componentes internos de la tarjeta) --- */
+.vehicle-card__image {
+    margin-bottom: 35px;
+}
+
+.vehicle-card__title {
+    font-family: 'Big Shoulders Display', cursive; /* Fuente para títulos */
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    color: var(--gray-100);
+    margin-bottom: 25px;
+}
+
+.vehicle-card__description {
+    color: var(--white-transparent);
+    margin-bottom: 80px; /* Espacio para empujar el botón al final */
+}
+
+.vehicle-card__button {
+    display: inline-block;
+    padding: 15px 30px;
+    background-color: var(--gray-100);
+    border: 2px solid var(--gray-100);
+    border-radius: 50px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+
+   
+/* Se definen los estilos base de color para los botones dentro de cada tipo de tarjeta */
+.vehicle-card--sedans .vehicle-card__button {
+    color: var(--gold-500);
+}
+.vehicle-card--suvs .vehicle-card__button {
+    color: var(--cyan-800);
+}
+.vehicle-card--luxury .vehicle-card__button {
+    color: var(--green-950);
+}
+
+/* Se definen los estilos de hover con mayor especificidad para que sobrescriban los colores base */
+.vehicle-card--sedans .vehicle-card__button:hover {
+    background-color: transparent;
+    color: var(--gray-100);
+}
+.vehicle-card--suvs .vehicle-card__button:hover {
+    background-color: transparent;
+    color: var(--gray-100);
+}
+.vehicle-card--luxury .vehicle-card__button:hover {
+    background-color: transparent;
+    color: var(--gray-100);
+}
+
+
+/* --- 3. MODIFICADORES (Las únicas diferencias entre las tarjetas) --- */
+.vehicle-card--sedans {
+    background-color: var(--gold-500);
+}
+.vehicle-card--suvs {
+    background-color: var(--cyan-800);
+}
+.vehicle-card--luxury {
+    background-color: var(--green-950);
+}
+
+/* Estilos del pie de página */
+.attribution {
+    font-size: 18px;
+    text-align: center;
+    margin-top: 1.5rem;
+}
+.attribution a {
+    color: hsl(228, 45%, 44%);
+}
+
+
+@media (min-width: 768px) {
+    .card-collection {
+        width: 100%;
+        max-width: 878px;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
