@@ -113,12 +113,15 @@ body {
 
 /* Estilos del pie de página */
 .attribution {
+    color: var(--cyan-800);
     font-size: 18px;
     text-align: center;
     margin-top: 1.5rem;
 }
 .attribution a {
-    color: hsl(228, 45%, 44%);
+    color: var(--gold-500);
+    text-decoration: none;
+    font-weight: 700;
 }
 
 
